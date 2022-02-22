@@ -1,0 +1,15 @@
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\bin\Debug\net6.0\Project Management Application.exe
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\bin\Debug\net6.0\Project Management Application.deps.json
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\bin\Debug\net6.0\Project Management Application.runtimeconfig.json
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\bin\Debug\net6.0\Project Management Application.dll
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\bin\Debug\net6.0\Project Management Application.pdb
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\obj\Debug\net6.0\Project Management Application.csproj.AssemblyReference.cache
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\obj\Debug\net6.0\Project Management Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\obj\Debug\net6.0\Project Management Application.AssemblyInfoInputs.cache
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\obj\Debug\net6.0\Project Management Application.AssemblyInfo.cs
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\obj\Debug\net6.0\Project Management Application.csproj.CoreCompileInputs.cache
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\obj\Debug\net6.0\Project Management Application.dll
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\obj\Debug\net6.0\refint\Project Management Application.dll
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\obj\Debug\net6.0\Project Management Application.pdb
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\obj\Debug\net6.0\Project Management Application.genruntimeconfig.cache
+D:\Aisha's Dir.Files\Training\Projects\Project Management Application\Project Management Application\obj\Debug\net6.0\ref\Project Management Application.dll
