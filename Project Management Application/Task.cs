@@ -11,14 +11,6 @@ namespace Project_Management_Application
         public string Title { get; set; }
         public string Description { get; set; }
         public string User { get; set; }
-        enum StatusType
-        {
-            To_Do,
-            In_progress,
-            Code_Review,
-            Testing,
-            Done
-        }
         public string Status { get; set; }
         public Task(string title,string descriprion,string user)
         {
