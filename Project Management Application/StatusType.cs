@@ -8,9 +8,9 @@ namespace Project_Management_Application
 {
     enum StatusType
     {
-        To_Do,
-        In_progress,
-        Code_Review,
+        ToDo,
+        InProgress,
+        CodeReview,
         Testing,
         Done
     }

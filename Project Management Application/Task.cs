@@ -14,10 +14,10 @@ namespace Project_Management_Application
         public string Status { get; set; }
         public Task(string title,string descriprion,string user)
         {
-            Title = title;
-            Description = descriprion;
-            User = user;
-            Status = StatusType.To_Do.ToString();
+            this.Title = title;
+            this.Description = descriprion;
+            this.User = user;
+            Status = StatusType.ToDo.ToString();
         }
         public override string ToString()
         {
