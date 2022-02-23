@@ -9,26 +9,26 @@ namespace Project_Management_Application
     internal class Project
     {
         public string ProjectName { get; set; }  
-        private List<Task> _tasks = new();
-        public List<string>? Users { get; set; }
+        public List<string> Users { get; set; }
+        public List<Task> Tasks { get; set; }
 
         public Project(string name)
         {
             this.ProjectName = name;
+            this.Users = new List<string>();
+            this.Tasks = new List<Task>();
         }
         public Project(string name,string []users)
         {
             this.ProjectName = name;
             this.Users = users.ToList();
+            this.Tasks = new List<Task>();
         }
         public Project(string name, string[] users, List<Task> tasks)
         {
             this.ProjectName = name;
             Users = users.ToList();
-            foreach (var task in tasks)
-            {
-                this._tasks.Add(task);
-            }
+            Tasks = tasks;
         }
         public void AddUser(string username)
         {
@@ -36,14 +36,16 @@ namespace Project_Management_Application
         }
         public void Add_Task(Task task)
         {
-            this._tasks.Add(task);
+            Tasks.Add(task);
         }
         public void PrintProjectInfo()
         {
-            if ((Users != null) && (_tasks.Count!=0))
+            if ((Users != null) && (Tasks.Count!=0))
             {
-                Console.WriteLine($"project name : {ProjectName} \n it has {Users.Count} users and they are :{ string.Join(", ", Users)} \n It consists of multiple tasks:");
-                foreach (var item in _tasks)
+                Console.WriteLine($"project name : {ProjectName}{Environment.NewLine}" +
+                    $"it has {Users.Count} users and they are :{ string.Join(", ", Users)}{Environment.NewLine}" +
+                    $"It consists of multiple tasks:");
+                foreach (var item in Tasks)
                 {
                     Console.WriteLine(item);
                 }
