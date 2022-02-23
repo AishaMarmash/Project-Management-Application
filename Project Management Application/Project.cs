@@ -40,8 +40,7 @@ namespace Project_Management_Application
         }
         public void print_project_info()
         {
-            Console.WriteLine("project name : "+Project_name+" \n it has "+ Users.Count+" users and they are :"+ string.Join(", ", Users)
-                + "\n It consists of multiple tasks:");
+            Console.WriteLine($"project name : {Project_name} \n it has {Users.Count} users and they are :{ string.Join(", ", Users)} \n It consists of multiple tasks:");
             foreach (var item in tasks)
             {
                 Console.WriteLine(item);

@@ -21,7 +21,7 @@ namespace Project_Management_Application
         }
         public override string ToString()
         {
-            return "Task Title : "+Title + " ,its description : "+ Description+ " , assigned to "+User +" and now its on "+ Status + " status";
+            return $"Task Title : {Title} ,its description : {Description} , assigned to {User} and now its on {Status} status";
         }
     }
 }
