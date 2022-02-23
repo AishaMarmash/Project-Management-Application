@@ -103,60 +103,6 @@ namespace Project_Management_Application
                         break;
                 }
             }
-
-
-
-
-/*
-            if (_counter == 0)
-            {
-                foreach (var project in _projects)
-                {
-                    if (project.ProjectName.Contains(_choice))
-                    {
-                        project.PrintProjectInfo();
-                    }
-                }
-            }
-            else if (_counter == 1)
-            {
-                foreach (var project in _projects)
-                {
-                    foreach(var task in project.Tasks)
-                    {
-                        if(task.Title.Contains(_choice))
-                        {
-                            Console.WriteLine(task);
-                        }
-                    }
-                }
-            }
-            else if (_counter == 2)
-            {
-                foreach (var project in _projects)
-                {
-                    foreach (var task in project.Tasks)
-                    {
-                        if (task.Status.Equals(_choice))
-                        {
-                            Console.WriteLine(task);
-                        }
-                    }
-                }
-            }
-            else if (_counter == 3)
-            {
-                foreach (var project in _projects)
-                {
-                    foreach (var task in project.Tasks)
-                    {
-                        if (task.User.Equals(_choice))
-                        {
-                            Console.WriteLine(task);
-                        }
-                    }
-                }
-            }*/
         }
     }
 }
