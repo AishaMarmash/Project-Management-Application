@@ -24,11 +24,17 @@ namespace Project_Management_Application
             this.Users = users.ToList();
             this.Tasks = new List<Task>();
         }
+        public Project(string name, List<Task> tasks)
+        {
+            this.ProjectName = name;
+            this.Users = new List<string>();
+            this.Tasks = tasks.ToList();
+        }
         public Project(string name, List<string> users, List<Task> tasks)
         {
             this.ProjectName = name;
             Users = users.ToList();
-            Tasks = tasks;
+            Tasks = tasks.ToList();
         }
         public void AddUser(string username)
         {
@@ -40,8 +46,8 @@ namespace Project_Management_Application
         }
         public void PrintProjectInfo()
         {
-            if ((Users != null) && (Tasks.Count!=0))
-            {
+            //if ((this.Users != null) && (this.Tasks.Count!=0))
+            //{
                 Console.WriteLine($"project name : {ProjectName}{Environment.NewLine}" +
                     $"it has {Users.Count} users and they are :{ string.Join(", ", Users)}{Environment.NewLine}" +
                     $"It consists of multiple tasks:");
@@ -49,7 +55,7 @@ namespace Project_Management_Application
                 {
                     Console.WriteLine(item);
                 }
-            }
+            //}
         }
     }
 }

@@ -6,23 +6,24 @@ namespace Project_Management_Application
     {
         private static List<Project> _projects = new();
         private static string? _choice;
+        private static List<Task> _projectTasks = new();
+        private static List<string> _projectUsers = new();
         public static void Main(string[] args)
         {
-            List<Task> Pro1Tasks = new();
-            Pro1Tasks.Add(new Task("task1", "descroiption for task1", "Ahmad"));
-            Project p1 = new("project1", new List<string>{ "Ahmad", "Salwa" },Pro1Tasks);
-            p1.AddUser("Noor");
-            _projects.Add(p1);
+            _projectTasks.Add(new Task("task1", "descroiption for task1", "Ahmad"));
+            _projectUsers.Add("Ahmad");
+            _projectUsers.Add("Salwa");
+            _projectUsers.Add("Noor");
+            Console.WriteLine(_projectTasks.Count);
+            ProjectFactory("project1", _projectUsers, _projectTasks);
 
-            List<Task> Pro2Tasks = new();
-            Pro2Tasks.Add(new Task("task2", "description for task2", "Samer"));
-            Pro2Tasks.Add(new Task("task3", "description for task3", "Mohammad"));
-            Project p2 = new("project2", new List<string> { "Samer", "Mohammad" }, Pro2Tasks.ToList());
-            _projects.Add(p2);
+            _projectTasks.Add(new Task("task2", "description for task2", "Samer"));
+            _projectTasks.Add(new Task("task3", "description for task3", "Mohammad"));
+            _projectUsers.Add("Samer");
+            _projectUsers.Add("Mohammad");
+            ProjectFactory("project2", _projectUsers, _projectTasks);
 
-            Project p3 = new("project3");
-            _projects.Add(p3);
-            //Console.WriteLine(p3.Tasks.ToList().Count);
+            ProjectFactory("project3");
 
             string listOfCommands = $@"What do you need? 
             1- List of available projects?
@@ -103,6 +104,35 @@ namespace Project_Management_Application
                         break;
                 }
             }
+        }
+        private static void ProjectFactory(string projectName, List<string> users, List<Task> tasks)
+        {
+            Project project = new(projectName, users, tasks);
+            _projects.Add(project);
+            //project.PrintProjectInfo();
+            _projectUsers.Clear();
+            _projectTasks.Clear();
+        }
+        private static void ProjectFactory(string projectName, List<string> users)
+        {
+            Project project = new(projectName, users);
+            _projects.Add(project);
+            _projectTasks.Clear();
+            _projectUsers.Clear();
+        }
+        private static void ProjectFactory(string projectName, List<Task> tasks)
+        {
+            Project project = new(projectName, tasks);
+            _projects.Add(project);
+            _projectTasks.Clear();
+            _projectUsers.Clear();
+        }
+        private static void ProjectFactory(string projectName)
+        {
+            Project project = new(projectName);
+            _projects.Add(project);
+            _projectTasks.Clear();
+            _projectUsers.Clear();
         }
     }
 }
