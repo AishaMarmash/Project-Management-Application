@@ -18,13 +18,13 @@ namespace Project_Management_Application
             this.Users = new List<string>();
             this.Tasks = new List<Task>();
         }
-        public Project(string name,string []users)
+        public Project(string name,List<string> users)
         {
             this.ProjectName = name;
             this.Users = users.ToList();
             this.Tasks = new List<Task>();
         }
-        public Project(string name, string[] users, List<Task> tasks)
+        public Project(string name, List<string> users, List<Task> tasks)
         {
             this.ProjectName = name;
             Users = users.ToList();

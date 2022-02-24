@@ -10,14 +10,14 @@ namespace Project_Management_Application
         {
             List<Task> Pro1Tasks = new();
             Pro1Tasks.Add(new Task("task1", "descroiption for task1", "Ahmad"));
-            Project p1 = new("project1", new string[2] { "Ahmad", "Salwa" },Pro1Tasks);
+            Project p1 = new("project1", new List<string>{ "Ahmad", "Salwa" },Pro1Tasks);
             p1.AddUser("Noor");
             _projects.Add(p1);
 
             List<Task> Pro2Tasks = new();
             Pro2Tasks.Add(new Task("task2", "description for task2", "Samer"));
             Pro2Tasks.Add(new Task("task3", "description for task3", "Mohammad"));
-            Project p2 = new("project2", new string[2] { "Samer", "Mohammad" }, Pro2Tasks.ToList());
+            Project p2 = new("project2", new List<string> { "Samer", "Mohammad" }, Pro2Tasks.ToList());
             _projects.Add(p2);
 
             Project p3 = new("project3");
