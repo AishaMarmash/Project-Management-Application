@@ -8,29 +8,16 @@ namespace Project_Management_Application
         private static string? _choice;
         private static List<Task> _projectTasks = new();
         private static List<string> _projectUsers = new();
+        private static string[] taskInfo;
         public static void Main(string[] args)
         {
-            _projectTasks.Add(new Task("task1", "descroiption for task1", "Ahmad"));
-            _projectUsers.Add("Ahmad");
-            _projectUsers.Add("Salwa");
-            _projectUsers.Add("Noor");
-            Console.WriteLine(_projectTasks.Count);
-            ProjectFactory("project1", _projectUsers, _projectTasks);
-
-            _projectTasks.Add(new Task("task2", "description for task2", "Samer"));
-            _projectTasks.Add(new Task("task3", "description for task3", "Mohammad"));
-            _projectUsers.Add("Samer");
-            _projectUsers.Add("Mohammad");
-            ProjectFactory("project2", _projectUsers, _projectTasks);
-
-            ProjectFactory("project3");
-
-            string listOfCommands = $@"What do you need? 
+            string textFile = "D:\\Aisha's Dir.Files\\Training\\Projects\\Project Management Application\\data.txt";
+            ReadDataFromFile(textFile);
+            Console.Write($@"What do you need? 
             1- List of available projects?
             2- Search on
             3- Close
-            Enter your choice: ";
-            Console.Write(listOfCommands);
+            Enter your choice: ");
             int _command = int.Parse(Console.ReadLine());
             switch (_command)
             {
@@ -47,6 +34,27 @@ namespace Project_Management_Application
                 default:
                     Console.WriteLine("Close the program");
                     break;
+            }
+        }
+        private static void ReadDataFromFile(string textFile)
+        {
+            string[] lines = File.ReadAllLines(textFile);
+            int LineIndex = 1;
+            int projectsNum = int.Parse(lines[0]);
+            for (int i = 0; i < projectsNum; i++)
+            {
+                string[] projectInfo = lines[LineIndex++].Split(" ");
+                string projectName = projectInfo[0];
+                for (int j = 0; j < int.Parse(projectInfo[1]); j++)
+                {
+                    _projectUsers.Add(lines[LineIndex++]);
+                }
+                for (int k = 0; k < int.Parse(projectInfo[2]); k++)
+                {
+                    taskInfo = lines[LineIndex++].Split(",");
+                    _projectTasks.Add(new Task(taskInfo[0], taskInfo[1], taskInfo[2]));
+                }
+                ProjectFactory(projectName, _projectUsers, _projectTasks);
             }
         }
         private static void Search()
@@ -109,7 +117,6 @@ namespace Project_Management_Application
         {
             Project project = new(projectName, users, tasks);
             _projects.Add(project);
-            //project.PrintProjectInfo();
             _projectUsers.Clear();
             _projectTasks.Clear();
         }
