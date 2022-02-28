@@ -16,5 +16,5 @@ Anas
 Aisha
 taskA,taskA Description,Anas
 taskB,taskB Description,Salsabeel
-taskC,task3 Description,Anas
-taskD,task4 Description,Aisha
+taskC,taskC Description,Anas
+taskD,taskD Description,Aisha
