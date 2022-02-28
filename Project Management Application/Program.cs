@@ -1,5 +1,6 @@
-﻿using System.IO;
-
+﻿using System.Collections;
+using System.IO;
+using System.Linq;
 namespace Project_Management_Application
 {
     public class Program
@@ -13,28 +14,33 @@ namespace Project_Management_Application
         {
             string textFile = "D:\\Aisha's Dir.Files\\Training\\Projects\\Project Management Application\\data.txt";
             ReadDataFromFile(textFile);
-            Console.Write($@"What do you need? 
+            while (true)
+            {
+                Console.Write($@"What do you need? 
             1- List of available projects?
             2- Search on
             3- Close
             Enter your choice: ");
-            int _command = int.Parse(Console.ReadLine());
-            switch (_command)
-            {
-                case 1:
-                    foreach (var project in _projects)
-                    {
-                        project.PrintProjectInfo();
-                        Console.WriteLine("============");
-                    }
-                    break;
-                case 2:
-                    Search();
-                    break;
-                default:
-                    Console.WriteLine("Close the program");
-                    break;
-            }
+                int _command = int.Parse(Console.ReadLine());
+                switch (_command)
+                {
+                    case 1:
+                        foreach (var project in _projects)
+                        {
+                            project.PrintProjectInfo();
+                            Console.WriteLine("============");
+                        }
+                        break;
+                    case 2:
+                        Search();
+                        break;
+                    default:
+                        Console.WriteLine("Close the program");
+                        break;
+                }
+                if(_command==3)
+                { break; }
+            } 
         }
         private static void ReadDataFromFile(string textFile)
         {
@@ -77,37 +83,39 @@ namespace Project_Management_Application
                 }
             }
             while (!_confirmed && (_counter < _listOfChoices.Length));
-
-            foreach (var project in _projects)
+            if(_choice!=null)
             {
-                switch(_counter)
+                switch (_counter)
                 {
                     case 0:
-                        if (project.ProjectName.Contains(_choice))
+                        var query = _projects.Where(project => project.ProjectName.Contains(_choice));
+                        foreach (var project in query)
                         {
                             project.PrintProjectInfo();
                         }
                         break;
                     case 1:
-                    case 2: 
-                    case 3:
-                        if(project.Tasks.Count!=0)
+                        var query2 = _projects.SelectMany(project => project.Tasks)
+                                              .Where(y => y.Title.Contains(_choice));
+                        foreach (var task in query2)
                         {
-                            foreach (var task in project.Tasks)
-                            {
-                                if ((_counter == 1) && (task.Title.Contains(_choice)))
-                                {
-                                    Console.WriteLine(task);
-                                }
-                                else if ((_counter == 2) && (task.Status.Equals(_choice)))
-                                {
-                                    Console.WriteLine(task);
-                                }
-                                else if ((_counter == 3) && (task.User.Equals(_choice)))
-                                {
-                                    Console.WriteLine(task);
-                                }
-                            }
+                            Console.WriteLine(task);
+                        }
+                        break;
+                    case 2:
+                        query2 = _projects.SelectMany(project => project.Tasks)
+                                          .Where(y => y.Status.Equals(_choice));
+                        foreach (var task in query2)
+                        {
+                            Console.WriteLine(task);
+                        }
+                        break;
+                    case 3:
+                        query2 = _projects.SelectMany(project => project.Tasks)
+                                          .Where(y => y.User.Equals(_choice));
+                        foreach (var task in query2)
+                        {
+                            Console.WriteLine(task);
                         }
                         break;
                 }
