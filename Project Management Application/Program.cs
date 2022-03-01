@@ -23,11 +23,7 @@ namespace Project_Management_Application
                 switch (_command)
                 {
                     case 1:
-                        foreach (var project in _projects)
-                        {
-                            project.PrintProjectInfo();
-                            Console.WriteLine("============");
-                        }
+                        ProjectFactory.PrintAllProjects(_projects);
                         break;
                     case 2:
                         Filtration.Search(_projects);

@@ -28,5 +28,13 @@ namespace Project_Management_Application
             Project project = new(projectName);
             return project;
         }
+        public static void PrintAllProjects(List <Project> projects)
+        {
+            foreach (var project in projects)
+            {
+                project.PrintProjectInfo();
+                Console.WriteLine("============");
+            }
+        }
     }
 }
