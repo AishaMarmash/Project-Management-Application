@@ -8,7 +8,7 @@ namespace Project_Management_Application
 {
     internal class Project
     {
-        public string ProjectName { get; set; }  
+        public string ProjectName { get; set; }   
         public List<string> Contributors { get; set; }
         public List<Task> Tasks { get; set; }
 

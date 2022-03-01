@@ -35,6 +35,6 @@ namespace Project_Management_Application
                 project.PrintProjectInfo();
                 Console.WriteLine("============");
             }
-        }
+        } 
     }
 }

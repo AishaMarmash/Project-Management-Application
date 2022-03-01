@@ -11,7 +11,6 @@ namespace Project_Management_Application
         {
             string textFile = "D:\\Aisha's Dir.Files\\Training\\Projects\\Project Management Application\\data.txt";
             _projects = FilesManager.ReadDataFromFile(textFile);
-            
             while (true)
             {
                 Console.Write($@"What do you need? 

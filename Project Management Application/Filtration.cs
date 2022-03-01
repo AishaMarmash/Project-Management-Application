@@ -22,9 +22,7 @@ namespace Project_Management_Application
             {
                 Console.WriteLine(task);
             }
-        }
-
-
+        } 
         private static string[] GetInformation()
         {
             string[] _listOfChoices = { "Project Name", "Task Name", "Task Status", "Assigned Contributor" };

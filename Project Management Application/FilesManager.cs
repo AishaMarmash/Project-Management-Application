@@ -14,7 +14,6 @@ namespace Project_Management_Application
             List<Task> projectTasks = new();
             List<string> projectContributors = new();
             string[] taskInfo;
-
             string[] lines = File.ReadAllLines(textFile);
             int LineIndex = 1;
             int projectsNum = int.Parse(lines[0]);
