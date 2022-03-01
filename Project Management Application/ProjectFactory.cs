@@ -8,14 +8,14 @@ namespace Project_Management_Application
 {
     internal class ProjectFactory
     {
-        public static Project BuildProject(string projectName, List<string> users, List<Task> tasks)
+        public static Project BuildProject(string projectName, List<string> contributors, List<Task> tasks)
         {
-            Project project = new(projectName, users, tasks);
+            Project project = new(projectName, contributors, tasks);
             return project;
         }
-        public static Project BuildProject(string projectName, List<string> users)
+        public static Project BuildProject(string projectName, List<string> contributors)
         {
-            Project project = new(projectName, users);
+            Project project = new(projectName, contributors);
             return project;
         }
         public static Project BuildProject(string projectName, List<Task> tasks)

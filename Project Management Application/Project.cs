@@ -18,10 +18,10 @@ namespace Project_Management_Application
             this.Contributors = new List<string>();
             this.Tasks = new List<Task>();
         }
-        public Project(string name,List<string> users)
+        public Project(string name,List<string> contributors)
         {
             this.ProjectName = name;
-            this.Contributors = users.ToList();
+            this.Contributors = contributors.ToList();
             this.Tasks = new List<Task>();
         }
         public Project(string name, List<Task> tasks)
@@ -30,13 +30,13 @@ namespace Project_Management_Application
             this.Contributors = new List<string>();
             this.Tasks = tasks.ToList();
         }
-        public Project(string name, List<string> users, List<Task> tasks)
+        public Project(string name, List<string> contributors, List<Task> tasks)
         {
             this.ProjectName = name;
-            Contributors = users.ToList();
+            Contributors = contributors.ToList();
             Tasks = tasks.ToList();
         }
-        public void AddUser(string username)
+        public void Addcontributor(string username)
         {
             Contributors.Add(username);
         }
@@ -47,7 +47,7 @@ namespace Project_Management_Application
         public void PrintProjectInfo()
         {
             Console.WriteLine($"project name : {ProjectName}{Environment.NewLine}" +
-                $"it has {Contributors.Count} users and they are :{ string.Join(", ", Contributors)}{Environment.NewLine}" +
+                $"it has {Contributors.Count} contributors and they are :{ string.Join(", ", Contributors)}{Environment.NewLine}" +
                 $"It consists of multiple tasks:");
             foreach (var item in Tasks)
             {

@@ -12,11 +12,11 @@ namespace Project_Management_Application
         public string Description { get; set; }
         public string Contributor { get; set; }
         public string Status { get; set; }
-        public Task(string title,string descriprion,string user)
+        public Task(string title,string descriprion,string contributor)
         {
             this.Title = title;
             this.Description = descriprion;
-            this.Contributor = user;
+            this.Contributor = contributor;
             Status = StatusType.ToDo.ToString();
         }
         public override string ToString()

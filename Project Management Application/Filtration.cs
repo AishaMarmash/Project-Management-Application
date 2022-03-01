@@ -16,17 +16,18 @@ namespace Project_Management_Application
             ProjectName_query = projects.Select(p => p).Where(p => p.ProjectName.Contains(filterBy[0])).ToList();
             var ProjectName_TaskName_query = ProjectName_query.SelectMany(pros => pros.Tasks).Where(task => task.Title.Contains(filterBy[1])).ToList();
             var ProjectName_TaskName_TaskStatus_query = ProjectName_TaskName_query.Select(task => task).Where(task => task.Status.Contains(filterBy[2]));
-            var ProjectName_TaskName_TaskStatus_User_query = ProjectName_TaskName_TaskStatus_query.Select(tasks => tasks).Where(task => task.Contributor.Contains(filterBy[3]));
+            var ProjectName_TaskName_TaskStatus_Contributor_query = ProjectName_TaskName_TaskStatus_query.Select(tasks => tasks).Where(task => task.Contributor.Contains(filterBy[3]));
 
-            foreach (var task in ProjectName_TaskName_TaskStatus_User_query)
+            foreach (var task in ProjectName_TaskName_TaskStatus_Contributor_query)
             {
                 Console.WriteLine(task);
             }
         }
 
+
         private static string[] GetInformation()
         {
-            string[] _listOfChoices = { "Project Name", "Task Name", "Task Status", "Assigned User" };
+            string[] _listOfChoices = { "Project Name", "Task Name", "Task Status", "Assigned Contributor" };
             Console.WriteLine($"Search on");
             string[] filterBy = new string[4];
             int counter = 0;
