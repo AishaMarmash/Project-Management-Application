@@ -7,7 +7,7 @@ namespace Project_Management_Application
     {
         private static List<Project> _projects = new();
         
-        public static void Main(string[] args)
+        public static void Main()
         {
             string textFile = "D:\\Aisha's Dir.Files\\Training\\Projects\\Project Management Application\\data.txt";
             _projects = FilesManager.ReadDataFromFile(textFile);
@@ -18,20 +18,28 @@ namespace Project_Management_Application
             2- Search on
             3- Close
             Enter your choice: ");
-                int _command = int.Parse(Console.ReadLine());
-                switch (_command)
+                int command = int.Parse(Console.ReadLine());
+                switch (command)
                 {
                     case 1:
-                        ProjectFactory.PrintAllProjects(_projects);
+                        foreach (var project in _projects)
+                        {
+                            Console.WriteLine(project);
+                        }
                         break;
                     case 2:
-                        Filtration.Search(_projects);
+                        string[] SearchUserInput = ProjectsUserInputReader.GetSearchInput();
+                        List <Task> result = TasksFiltration.Search(_projects, SearchUserInput);
+                        foreach (var task in result)
+                        {
+                            Console.WriteLine(task);
+                        }
                         break;
                     default:
                         Console.WriteLine("Close the program");
                         break;
                 }
-                if(_command==3)
+                if(command==3)
                 { break; }
             } 
         }        
