@@ -18,7 +18,16 @@ namespace Project_Management_Application
             2- Search on
             3- Close
             Enter your choice: ");
-                int command = int.Parse(Console.ReadLine());
+                int command;
+                try
+                {
+                    command = int.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Enter the number of command you need Please");
+                    continue;
+                }
                 switch (command)
                 {
                     case 1:
@@ -35,8 +44,10 @@ namespace Project_Management_Application
                             Console.WriteLine(task);
                         }
                         break;
-                    default:
+                    case 3:
                         Console.WriteLine("Close the program");
+                        break;
+                    default:
                         break;
                 }
                 if(command==3)
