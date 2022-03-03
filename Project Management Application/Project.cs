@@ -8,54 +8,46 @@ namespace Project_Management_Application
 {
     internal class Project
     {
-        public string ProjectName { get; set; }  
-        public List<string> Users { get; set; }
+        public string ProjectName { get; set; }   
+        public List<string> Contributors { get; set; }
         public List<Task> Tasks { get; set; }
-
         public Project(string name)
         {
             this.ProjectName = name;
-            this.Users = new List<string>();
+            this.Contributors = new List<string>();
             this.Tasks = new List<Task>();
         }
-        public Project(string name,List<string> users)
+        public Project(string name,List<string> contributors)
         {
             this.ProjectName = name;
-            this.Users = users.ToList();
+            this.Contributors = contributors.ToList();
             this.Tasks = new List<Task>();
         }
         public Project(string name, List<Task> tasks)
         {
             this.ProjectName = name;
-            this.Users = new List<string>();
+            this.Contributors = new List<string>();
             this.Tasks = tasks.ToList();
         }
-        public Project(string name, List<string> users, List<Task> tasks)
+        public Project(string name, List<string> contributors, List<Task> tasks)
         {
             this.ProjectName = name;
-            Users = users.ToList();
+            Contributors = contributors.ToList();
             Tasks = tasks.ToList();
         }
-        public void AddUser(string username)
+        public void Addcontributor(string username)
         {
-            Users.Add(username);
+            Contributors.Add(username);
         }
         public void Add_Task(Task task)
         {
             Tasks.Add(task);
         }
-        public void PrintProjectInfo()
+        public override string ToString()
         {
-            //if ((this.Users != null) && (this.Tasks.Count!=0))
-            //{
-                Console.WriteLine($"project name : {ProjectName}{Environment.NewLine}" +
-                    $"it has {Users.Count} users and they are :{ string.Join(", ", Users)}{Environment.NewLine}" +
-                    $"It consists of multiple tasks:");
-                foreach (var item in Tasks)
-                {
-                    Console.WriteLine(item);
-                }
-            //}
+            return $"project name : {ProjectName}{Environment.NewLine}" +
+                $"it has {Contributors.Count} contributors and they are :{ string.Join(", ", Contributors)}{Environment.NewLine}" +
+                $"It consists of multiple tasks:{Environment.NewLine} { string.Join("\n ", Tasks)}";
         }
     }
 }
